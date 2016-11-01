@@ -17,9 +17,9 @@ class PostsNew extends React.Component {
     }
 
 
-    renderInput({ input, label, type, meta: { touched, error } }){
+    renderInput({ input, label, type, meta: { touched, invalid, error } }){
         return(
-            <div>
+            <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>
                 <label>{label}</label>
                 <input {...input} placeholder={label} type={type} className="form-control"/>
                 {touched && error && <span>{error}</span>}
@@ -27,9 +27,9 @@ class PostsNew extends React.Component {
         );
     }
 
-    renderTextArea({ input, label, type, meta: { touched, error } }){
+    renderTextArea({ input, label, type, meta: { touched, invalid, error } }){
         return (
-            <div>
+            <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>
                 <label>{label}</label>
                 <textarea {...input} className="form-control"/>
                 {touched && error && <span>{error}</span>}
@@ -59,17 +59,12 @@ class PostsNew extends React.Component {
         return (
             <form onSubmit={handleSubmit(this.onFormSubmit)}>
                 <h3>Create a new post</h3>
-                <div className="form-group">
-                    <Field name="title" component={this.renderInput} label="Title"/>
-                </div>
 
-                <div className="form-group">
-                    <Field name="categories" component={this.renderInput} label="Categories"/>
-                </div>
+                <Field name="title" component={this.renderInput} type="text" label="Title"/>
 
-                <div className="form-group">
-                    <Field name="content" component={this.renderTextArea} label="Content"/>
-                </div>
+                <Field name="categories" component={this.renderInput} type="text" label="Categories"/>
+
+                <Field name="content" component={this.renderTextArea} label="Content"/>
 
                 <button type="submit" disabled={submitting} className="btn btn-primary">Submit</button>
             </form>
