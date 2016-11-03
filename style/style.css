@@ -1,0 +1,11 @@
+/**
+* Form validation styles
+**/
+.danger-text{
+    color: red;
+}
+
+form a {
+    margin-left: 5px;
+}
+

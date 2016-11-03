@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
 import { createPost } from '../actions/index';
+import { Link } from 'react-router';
 
 class PostsNew extends React.Component {
     constructor(props) {
@@ -22,7 +23,7 @@ class PostsNew extends React.Component {
             <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>
                 <label>{label}</label>
                 <input {...input} placeholder={label} type={type} className="form-control"/>
-                {touched && error && <span>{error}</span>}
+                {touched && error && <span className="danger-text">{error}</span>}
             </div>
         );
     }
@@ -32,20 +33,20 @@ class PostsNew extends React.Component {
             <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>
                 <label>{label}</label>
                 <textarea {...input} className="form-control"/>
-                {touched && error && <span>{error}</span>}
+                {touched && error && <span className="danger-text">{error}</span>}
             </div>
         );
     }
 
     renderSelectField({ input, label, type, meta: { touched, error }, children }){
         return(
-            <div>
-                <label>{label}</label>
+            <div className={`form-group ${touched && invalid ? 'has-danger' : ''}`}>
+                <label>{label}</label>l
                 <div>
                     <select {...input}>
                         {children}
                     </select>
-                    {touched && error && <span>{error}</span>}
+                    {touched && error && <span className="danger-text">{error}</span>}
                 </div>
             </div>
         );
@@ -67,6 +68,7 @@ class PostsNew extends React.Component {
                 <Field name="content" component={this.renderTextArea} label="Content"/>
 
                 <button type="submit" disabled={submitting} className="btn btn-primary">Submit</button>
+                <Link to="/" className="btn btn-danger">Cancel</Link>
             </form>
         );
     }
