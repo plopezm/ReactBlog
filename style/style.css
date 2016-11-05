@@ -9,3 +9,57 @@ form a {
     margin-left: 5px;
 }
 
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-li-title{
+    order: 1;
+    flex-grow: 50;
+}
+
+.flex-li-category{
+    order: 2;
+    flex-grow: 1;
+}
+
+.flex-li-link{
+    order: 1;
+    flex-grow: 50;
+    align-self: center;
+}
+
+.flex-li-button{
+    order: 2;
+    flex-grow:1;
+}
+
+ul li button{
+    margin: 15px;
+    border: solid 1px;
+}
+
+/* Starting state of animation */
+.fade-enter {
+    opacity: 0;
+    left: 100vw;
+}
+
+/* End state of animation */
+.fade-enter-active{
+    left: 0;
+    opacity: 1;
+    transition: .5s ease-in all;
+}
+
+.fade-leave{
+    opacity: 1;
+}
+
+.fade-leave-active {
+    opacity: 0;
+    transition: .5s ease-out all;
+}
+
+
