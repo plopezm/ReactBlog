@@ -24,11 +24,13 @@ class PostsShow extends React.Component {
 
     render() {
 
-        const { post } = this.props;
+        const { posts } = this.props;
 
-        if(!post){
+        if(!posts){
             return <div>Loading...</div>
         }
+
+        const post = posts[this.props.params.id];
 
         return (
             <article>
@@ -46,7 +48,7 @@ class PostsShow extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return {post: state.posts.post};
+    return {posts: state.posts};
 }
 
 function mapDispatchToProps(dispath){

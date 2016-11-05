@@ -21,7 +21,8 @@ class PostsIndex extends React.Component {
     }
 
     renderPosts(){
-        return this.props.posts.map((post) => {
+        return Object.keys(this.props.posts).map((id) => {
+            const post = this.props.posts[id];
             return (
                     <li className="list-group-item" key={post.id}>
                         <div className="flex-container">
@@ -67,7 +68,7 @@ class PostsIndex extends React.Component {
 }
 
 function mapStateToProps(state) {
-    return {posts: state.posts.all};
+    return {posts: state.posts};
 }
 
 function mapDispatchToProps(dispath){
