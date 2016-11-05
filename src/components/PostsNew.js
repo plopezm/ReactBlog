@@ -1,22 +1,19 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Field, reduxForm } from 'redux-form';
-import { createPost } from '../actions/index';
 import { Link } from 'react-router';
+import { browserHistory } from 'react-router';
+
+import { createPost } from '../actions/index';
 
 class PostsNew extends React.Component {
+
     constructor(props) {
         super(props);
 
         this.onFormSubmit = this.onFormSubmit.bind(this);
     }
-
-    onFormSubmit(e){
-        console.log(e);
-        this.props.createPost(e);
-    }
-
 
     renderInput({ input, label, type, meta: { touched, invalid, error } }){
         return(
@@ -50,6 +47,13 @@ class PostsNew extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    onFormSubmit(props){
+        this.props.createPost(props)
+            .then(() => {
+                browserHistory.push('/');
+            });
     }
 
     render() {
