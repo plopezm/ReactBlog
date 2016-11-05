@@ -1,6 +1,6 @@
 # Blog Application
 
-Interested in learning [Redux](https://www.udemy.com/react-redux/)?
+Example application developed with react + redux + redux-forms
 
 ###Getting Started###
 
