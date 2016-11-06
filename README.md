@@ -8,3 +8,10 @@ Example application developed with react + redux + redux-forms
 	> npm install
 	> npm start
 ```
+
+###Building application###
+
+```
+	> npm install
+	> npm run build
+```
